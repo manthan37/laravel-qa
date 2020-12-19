@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcceptAnswerController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Auth;
@@ -28,3 +29,4 @@ Route::resource('questions', QuestionController::class)->except('show');
 // Route::post('/questions/{question}/answer', [AnswerController::class, 'store'])->name('answer.store');
 Route::resource('questions.answers', AnswerController::class)->except(['index', 'create', 'show']);
 Route::get('questions/{slug}', [QuestionController::class, 'show'])->name('questions.show');
+Route::post('answers/{answer}/accpet', AcceptAnswerController::class)->name('answers.accept');
