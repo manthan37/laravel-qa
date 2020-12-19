@@ -27,10 +27,10 @@
                             <div class="col-4">
                                 <div class="ml-auto">
                                     @can('update',$answer)
-                                    <a href="{{ route('questions.answers.edit',[$answer->id,$question->id]) }}" class="btn btn-sm  btn-outline-info">Edit</a>
+                                    <a href="{{ route('questions.answers.edit',[$question->id,$answer->id]) }}" class="btn btn-sm  btn-outline-info">Edit</a>
                                     @endcan
                                     @can('delete',$answer)
-                                    <form action="{{ route('questions.answers.destroy',[$answer->id,$question->id]) }}" method="post" class="form-delete">
+                                    <form action="{{ route('questions.answers.destroy',[$question->id,$answer->id]) }}" method="post" class="form-delete">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" value="Delete" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are You Sure?')">Delete</button>
