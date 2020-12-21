@@ -20,7 +20,7 @@
                 <div class="card-body">
                     @include('layouts._messages')
 
-                    @foreach ($questions as $question)
+                    @forelse ($questions as $question)
                         <div class="media">
                             <div class="d-flex flex-column counters">
                                 <div class="vote">
@@ -60,7 +60,11 @@
                             </div>
                         </div>
                         <hr>
-                    @endforeach
+                    @empty
+                        <div class="alert alert-warning">
+                            <strong>No Questions Available!</strong>
+                        </div>
+                    @endforelse
                     <div class="mx-auto">
                         {{ $questions->links('pagination::bootstrap-4') }}
                     </div>
